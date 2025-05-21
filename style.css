@@ -1,16 +1,27 @@
+@import url('Assets/Gilroy-Font/stylesheet.css');
+
+* {
+    font-family: 'Gilroy', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: normal;
+}
+
 /* style.css */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1a1a2e; /* Dark blue-purple background */
-    color: #e0e0e0; /* Light grey text */
+    font-family: 'Gilroy', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: normal;
+    background-color: #19191b;
+    /* Dark blue-purple background */
+    color: #e0e0e0;
+    /* Light grey text */
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow: hidden; /* Prevents scrollbars from animations */
-    transition: background-color 0.5s ease-in-out;
+    overflow: hidden;
+    /* Prevents scrollbars from animations */
+    transition: all 0.2s ease-in-out;
 }
 
 .container {
@@ -21,10 +32,10 @@ body {
 }
 
 #timer-display {
-    font-size: 6rem;
-    font-weight: 300;
+    font-size: 7rem;
     margin-bottom: 30px;
-    color: #f0f0f0;
+    color: #ffffff;
+    font-weight: 100;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2);
     transition: color 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
 }
@@ -32,20 +43,22 @@ body {
 .glass-button {
     padding: 15px 30px;
     font-size: 1.2rem;
-    font-weight: 600;
+    font-weight: 200 !important;
     color: #fff;
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid transparent;
-    border-radius: 15px;
+    border-radius: 0;
     cursor: pointer;
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Softer shadow */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    /* Softer shadow */
     transition: all 0.3s ease-in-out;
     margin: 10px;
-    min-width: 150px; /* Ensure buttons have a decent width */
+    min-width: 150px;
+    /* Ensure buttons have a decent width */
 }
 
 .glass-button::before {
@@ -55,9 +68,9 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.151) 0%, rgba(255, 255, 255, 0) 50%);
     transform: scale(0);
-    transition: transform 0.5s ease;
+    transition: transform 0.25s ease-in;
     z-index: 0;
     opacity: 0;
 }
@@ -67,7 +80,7 @@ body {
     opacity: 1;
 }
 
-.glass-button .button-text, .glass-button .shiny-shadow {
+/* .glass-button .button-text, .glass-button .shiny-shadow {
     position: relative;
     z-index: 1;
 }
@@ -93,57 +106,70 @@ body {
 
 .glass-button:hover .shiny-shadow {
     opacity: 1;
-}
+} */
 
 @keyframes shiny-effect {
-    0% { transform: translateX(-100%) translateY(-100%) rotate(20deg); }
-    100% { transform: translateX(100%) translateY(100%) rotate(20deg); }
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(20deg);
+    }
+
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(20deg);
+    }
 }
 
 /* Gradient Border */
 .glass-button {
     border-image-slice: 1;
-    border-image-source: linear-gradient(to bottom right, #8A2BE2, #4A00E0, #00F2FE);
+    border-image-source: linear-gradient(to bottom right, #8A2BE2, #4b00e000, #00F2FE);
 }
 
 #start-stop-button.stopped {
-    background: rgba(0, 255, 127, 0.15); /* Greenish tint for stopped */
-    border-image-source: linear-gradient(to bottom right, #00FF7F, #32CD32, #00FA9A);
+    background: rgba(0, 255, 127, 0.15);
+    /* Greenish tint for stopped */
+    border-image-source: linear-gradient(to bottom right, #00FF7F, #32cd3200, #00FA9A);
+    transition: all 0.5s ease;
 }
 
 #start-stop-button.playing {
-    background: rgba(255, 69, 0, 0.2); /* Orangish-red tint for playing */
-    border-image-source: linear-gradient(to bottom right, #FF4500, #FF6347, #FF7F50);
+    background: rgba(255, 69, 0, 0.2);
+    /* Orangish-red tint for playing */
+    border-image-source: linear-gradient(to bottom right, #FF4500, #ff634700, #FF7F50);
+    transition: all 0.5s ease;
 }
 
 #start-stop-button.stopped:hover {
     background: rgba(0, 255, 127, 0.25);
-    box-shadow: 0 0 20px rgba(0, 255, 127, 0.5), 0 0 30px rgba(0, 255, 127, 0.3);
+    box-shadow: 0 0 15px rgba(0, 255, 127, 0.5), 0 0 40px rgba(0, 255, 128, 0.219);
 }
 
 #start-stop-button.playing:hover {
     background: rgba(255, 69, 0, 0.3);
-    box-shadow: 0 0 20px rgba(255, 69, 0, 0.5), 0 0 30px rgba(255, 69, 0, 0.3);
+    box-shadow: 0 0 15px rgba(255, 69, 0, 0.5), 0 0 40px rgba(255, 68, 0, 0.199);
 }
 
 #settings-button {
-    background: rgba(138, 43, 226, 0.15); /* Purple tint for settings */
-    border-image-source: linear-gradient(to bottom right, #9370DB, #8A2BE2, #4B0082);
+    background: rgba(138, 43, 226, 0.15);
+    /* Purple tint for settings */
+    border-image-source: linear-gradient(to bottom right, #945fff, #892be200, #a527ff);
+    transition: all 0.5s ease;
 }
 
 #settings-button:hover {
     background: rgba(138, 43, 226, 0.25);
-    box-shadow: 0 0 20px rgba(138, 43, 226, 0.5), 0 0 30px rgba(138, 43, 226, 0.3);
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.5), 0 0 40px rgba(137, 43, 226, 0.219);
 }
 
 /* Dynamic theme changes */
 body.playing-theme {
-    background-color: #2c1a2e; /* Darker purple when playing */
+    background-color: #161622;
+    /* Darker purple when playing */
 }
 
 body.playing-theme #timer-display {
-    color: #ffae42; /* Orange color for timer when playing */
-    text-shadow: 0 0 15px rgba(255, 174, 66, 0.5), 0 0 25px rgba(255, 174, 66, 0.3);
+    color: #9bfffa;
+    /* Orange color for timer when playing */
+    text-shadow: 0 0 20px rgba(127, 255, 255, 0.548), 0 0 45px rgba(66, 255, 255, 0.164);
 }
 
 /* Animations for button state change */
@@ -157,15 +183,31 @@ body.playing-theme #timer-display {
 
 /* Stunning animation for state change - example: pulse and color shift */
 @keyframes pulse-playing {
-    0% { box-shadow: 0 0 0 0 rgba(255, 69, 0, 0.7); }
-    70% { box-shadow: 0 0 10px 20px rgba(255, 69, 0, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(255, 69, 0, 0); }
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 69, 0, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 10px 20px rgba(255, 69, 0, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 69, 0, 0);
+    }
 }
 
 @keyframes pulse-stopped {
-    0% { box-shadow: 0 0 0 0 rgba(0, 255, 127, 0.7); }
-    70% { box-shadow: 0 0 10px 20px rgba(0, 255, 127, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(0, 255, 127, 0); }
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 127, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 10px 20px rgba(0, 255, 127, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 127, 0);
+    }
 }
 
 #start-stop-button.playing.animate-change {

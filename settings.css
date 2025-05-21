@@ -1,8 +1,17 @@
+@import url('Assets/Gilroy-Font/stylesheet.css');
+
+* {
+    font-family: 'Gilroy', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: normal;
+}
+
 /* settings.css */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1e1e3f; /* Slightly different dark blue-purple for settings */
-    color: #e0e0e0;
+    font-family: 'Gilroy', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: normal;
+    background-color: #19191b;;
+    /* Slightly different dark blue-purple for settings */
+    color: #ffffff;
     margin: 0;
     padding: 20px;
     display: flex;
@@ -10,18 +19,13 @@ body {
     align-items: center;
     min-height: 100vh;
     box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
 }
 
 .container {
     width: 100%;
     max-width: 450px;
     padding: 30px;
-    background: rgba(20, 20, 40, 0.7); /* Darker, more translucent background */
-    border-radius: 20px;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
 h1 {
@@ -50,7 +54,6 @@ h1 {
     padding: 12px;
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
     color: #e0e0e0;
     font-size: 1rem;
     box-sizing: border-box;
@@ -59,8 +62,9 @@ h1 {
 
 .setting-item input[type="number"]:focus,
 .setting-item select:focus {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: #8A2BE2; /* Purple accent on focus */
+    background: rgba(255, 255, 255, 0.12) !important;
+    border-color: #8A2BE2;
+    /* Purple accent on focus */
     outline: none;
     box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
 }
@@ -71,17 +75,17 @@ h1 {
     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M5%207.5L10%2012.5L15%207.5%22%20stroke%3D%22%23C0C0C0%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E');
     background-repeat: no-repeat;
     background-position: right 12px center;
-    padding-right: 35px; /* Make space for custom arrow */
+    padding-right: 35px;
+    /* Make space for custom arrow */
 }
 
-.glass-button {
+.setting-glass-button {
     padding: 12px 25px;
     font-size: 1rem;
     font-weight: 600;
     color: #fff;
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid transparent;
-    border-radius: 12px;
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -89,45 +93,43 @@ h1 {
     -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 6px 25px 0 rgba(31, 38, 135, 0.3);
     transition: all 0.3s ease-in-out;
-    margin-top: 10px;
 }
 
-.glass-button::before {
+.setting-glass-button::before {
     content: '';
     position: absolute;
     top: -50%;
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
     transform: scale(0);
     transition: transform 0.5s ease;
     z-index: 0;
     opacity: 0;
 }
 
-.glass-button:hover::before {
+.setting-glass-button:hover::before {
     transform: scale(1);
     opacity: 1;
 }
 
-.glass-button .button-text, .glass-button .shiny-shadow {
+.setting-glass-button .button-text,
+.setting-glass-button .shiny-shadow {
     position: relative;
     z-index: 1;
 }
-
-.glass-button .shiny-shadow {
+/* 
+.setting-glass-button .shiny-shadow {
     position: absolute;
     top: -100%;
     left: -100%;
     width: 300%;
     height: 300%;
-    background-image: linear-gradient(
-        -45deg,
-        transparent 40%,
-        rgba(255, 255, 255, 0.25) 50%,
-        transparent 60%
-    );
+    background-image: linear-gradient(-45deg,
+            transparent 40%,
+            rgba(255, 255, 255, 0.25) 50%,
+            transparent 60%);
     transform: rotate(20deg);
     animation: shiny-effect 3s infinite linear;
     opacity: 0;
@@ -135,47 +137,56 @@ h1 {
     z-index: 0;
 }
 
-.glass-button:hover .shiny-shadow {
+.setting-glass-button:hover .shiny-shadow {
     opacity: 1;
 }
 
 @keyframes shiny-effect {
-    0% { transform: translateX(-100%) translateY(-100%) rotate(20deg); }
-    100% { transform: translateX(100%) translateY(100%) rotate(20deg); }
-}
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(20deg);
+    }
 
-.glass-button.primary-button {
-    background: rgba(0, 220, 120, 0.2); /* Greenish tint */
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(20deg);
+    }
+} */
+
+.setting-glass-button.primary-button {
+    background: rgba(0, 220, 120, 0.2);
+    /* Greenish tint */
     border-image-slice: 1;
     border-image-source: linear-gradient(to bottom right, #00FF7F, #32CD32, #00FA9A);
 }
 
-.glass-button.primary-button:hover {
+.setting-glass-button.primary-button:hover {
     background: rgba(0, 220, 120, 0.3);
     box-shadow: 0 0 15px rgba(0, 220, 120, 0.5), 0 0 25px rgba(0, 220, 120, 0.3);
 }
 
-.glass-button.secondary-button {
-    background: rgba(100, 100, 150, 0.2); /* Bluish-grey tint */
+.setting-glass-button.secondary-button {
+    background: rgba(100, 100, 150, 0.2);
+    /* Bluish-grey tint */
     border-image-slice: 1;
     border-image-source: linear-gradient(to bottom right, #6495ED, #4682B4, #5F9EA0);
 }
 
-.glass-button.secondary-button:hover {
+.setting-glass-button.secondary-button:hover {
     background: rgba(100, 100, 150, 0.3);
     box-shadow: 0 0 15px rgba(100, 100, 150, 0.5), 0 0 25px rgba(100, 100, 150, 0.3);
 }
 
-.glass-button.preview-button {
-    background: rgba(255, 165, 0, 0.2); /* Orange tint */
+.setting-glass-button.preview-button {
+    background: rgba(255, 165, 0, 0.2);
+    /* Orange tint */
     border-image-slice: 1;
     border-image-source: linear-gradient(to bottom right, #FFA500, #FF8C00, #FF7F50);
     margin-left: 10px;
-    padding: 10px 15px; /* Smaller padding for preview */
+    padding: 10px 15px;
+    /* Smaller padding for preview */
     font-size: 0.9rem;
 }
 
-.glass-button.preview-button:hover {
+.setting-glass-button.preview-button:hover {
     background: rgba(255, 165, 0, 0.3);
     box-shadow: 0 0 12px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.3);
 }
@@ -187,32 +198,38 @@ h1 {
     gap: 15px;
 }
 
-.setting-item .glass-button.preview-button {
-    vertical-align: middle; /* Align with select box */
+.setting-item .setting-glass-button.preview-button {
+    vertical-align: middle;
+    /* Align with select box */
 }
 
 /* Ensure consistent height for select and input */
 .setting-item input[type="number"],
 .setting-item select,
-.setting-item .glass-button.preview-button {
-    height: 45px; /* Adjust as needed */
+.setting-item .setting-glass-button.preview-button {
+    height: 45px;
+    /* Adjust as needed */
     box-sizing: border-box;
 }
 
-.setting-item .glass-button.preview-button {
-    height: auto; /* Let button height be natural based on padding */
+.setting-item .setting-glass-button.preview-button {
+    height: auto;
+    /* Let button height be natural based on padding */
     padding: 10px 15px;
-    line-height: normal; /* Reset line height if needed */
+    line-height: normal;
+    /* Reset line height if needed */
 }
 
 /* Adjust layout for sound select and preview button */
-.setting-item label[for="sound-select"] + select {
-    width: calc(100% - 120px); /* Adjust width based on preview button size */
+.setting-item label[for="sound-select"]+select {
+    width: calc(100% - 120px);
+    /* Adjust width based on preview button size */
     display: inline-block;
     margin-right: 10px;
 }
 
-.setting-item .glass-button.preview-button {
+.setting-item .setting-glass-button.preview-button {
     display: inline-block;
-    width: auto; /* Let button width be natural */
+    width: auto;
+    /* Let button width be natural */
 }
