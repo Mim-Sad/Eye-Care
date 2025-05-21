@@ -1,0 +1,36 @@
+{
+  "name": "eye-care",
+  "version": "1.0.0",
+  "description": "An application to help manage screen time and remind users to take breaks.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "ir.rudev.eyecare",
+    "productName": "Eye Care",
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "files": [
+      "**/*",
+      "!node_modules/.bin",
+      "!node_modules/electron-builder/node_modules/.bin",
+      "!node_modules/electron/dist/resources/default_app.asar"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^36.2.1",
+    "electron-builder": "^26.0.12"
+  }
+}
